@@ -1,49 +1,54 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 export default function Navbar({ toggle, setToggle }) {
   return (
     <nav style={{ left: toggle && "0" }} className="navbar">
       <ul className="navbar-links">
-        <li
+        <Link
+          to={"/"}
           onClick={() => {
             setToggle(false);
           }}
           className="navbar-link"
         >
           Home
-        </li>
-        <li
+        </Link>
+        <Link
+          to={"/movies"}
           onClick={() => {
             setToggle(false);
           }}
           className="navbar-link"
         >
           Movies
-        </li>
-        <li
+        </Link>
+        <Link
+          to={"/about"}
           onClick={() => {
             setToggle(false);
           }}
           className="navbar-link"
         >
           About Us
-        </li>
-        <li
+        </Link>
+        <Link
+          to={"/contact"}
           onClick={() => {
             setToggle(false);
           }}
           className="navbar-link"
         >
           Contact Us
-        </li>
-        <li
+        </Link>
+        <Link
+          to={"/register"}
           onClick={() => {
             setToggle(false);
           }}
           className="navbar-link"
         >
           Register
-        </li>
+        </Link>
       </ul>
     </nav>
   );

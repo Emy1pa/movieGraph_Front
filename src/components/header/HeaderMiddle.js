@@ -5,8 +5,8 @@ export default function HeaderMiddle() {
     <div className="header-middle">
       <div className="header-middle-logo">
         <b>Movie</b>
-        <i class="bi bi-film"></i>
-        <b>Store</b>
+        <i className="bi bi-film"></i>
+        <b>Show</b>
       </div>
       <div className="header-middle-search-box">
         <input

@@ -27,11 +27,13 @@ export default function HeaderTop({ setToggle, toggle }) {
           <i className="bi bi-instagram"></i>
         </Link>
       </div>
-      <div className="header-top-text">Welcome To Online Movie Store</div>
-      <div className="header-top-link">
-        <i className="bi bi-person-fill"></i>
-        Login
-      </div>
+      <div className="header-top-text">Welcome To Online Movie Show</div>
+      <Link to={"/login"}>
+        <div className="header-top-link">
+          <i className="bi bi-person-fill"></i>
+          Login
+        </div>
+      </Link>
     </div>
   );
 }

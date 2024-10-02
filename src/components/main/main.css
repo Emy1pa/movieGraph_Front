@@ -1,0 +1,153 @@
+/* Main Section Styles */
+.main-section {
+  padding: 80px 5% 40px;
+  background-color: var(--background-light);
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(
+    135deg,
+    var(--primary-dark),
+    var(--primary-light)
+  );
+  border-radius: 15px;
+  padding: 60px 40px;
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 130px;
+  width: 100%;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 3rem;
+  color: var(--text-light);
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  background-color: var(--accent);
+  color: var(--text-dark);
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cta-button:hover {
+  background-color: var(--secondary);
+  transform: translateY(-2px);
+}
+
+.cta-button i {
+  font-size: 1.2rem;
+}
+
+/* Newsletter Section */
+.newsletter {
+  background-color: var(--primary-light);
+  border-radius: 15px;
+  padding: 40px;
+  text-align: center;
+  color: var(--text-light);
+}
+
+.newsletter p {
+  margin-bottom: 20px;
+}
+
+.newsletter-form {
+  display: flex;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.newsletter-form input {
+  flex-grow: 1;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px 0 0 25px;
+  font-size: 1rem;
+}
+
+.newsletter-form button {
+  background-color: var(--accent);
+  color: var(--text-dark);
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 0 25px 25px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.newsletter-form button:hover {
+  background-color: var(--secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-section {
+    padding: 60px 3% 30px;
+  }
+
+  .hero {
+    padding: 40px 20px;
+    margin-top: 150px;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .featured-content h2,
+  .trending h2,
+  .newsletter h2 {
+    font-size: 1.8rem;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trending-list {
+    grid-template-columns: 1fr;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-form input,
+  .newsletter-form button {
+    width: 100%;
+    border-radius: 25px;
+  }
+
+  .newsletter-form input {
+    margin-bottom: 10px;
+  }
+}

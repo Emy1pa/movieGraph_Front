@@ -1,34 +1,24 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap");
 
 :root {
-  --primary-dark: #0d253f;
-  --primary-light: #01b4e4;
-  --secondary: #90cea1;
-  --accent: #ffa500;
-  --text-light: #ffffff;
-  --text-dark: #333333;
-  --background-light: #f5f5f5;
-  --overlay: rgba(13, 37, 63, 0.8);
+  --primary-color: #e50914;
+  --secondary-color: #221f1f;
+  --text-color: #ffffff;
+  --background-color: #000000;
 }
 
 body {
-  font-family: "Roboto", sans-serif;
-  background-color: var(--background-light);
-  color: var(--text-dark);
-  margin: 0;
-  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: "Cairo", sans-serif;
 }
 
 .header {
-  background: linear-gradient(
-    135deg,
-    var(--primary-dark),
-    var(--primary-light)
-  );
+  background-color: var(--secondary-color);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: fixed;
   width: 100%;
-  z-index: 1000;
+  z-index: 999;
 }
 
 /* Header Top */
@@ -37,13 +27,12 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 10px 5%;
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .header-top-menu,
 .header-top-link {
-  color: var(--text-light);
+  color: var(--text-color);
   font-size: 1rem;
   transition: all 0.3s ease;
 }
@@ -51,12 +40,12 @@ body {
 .header-top-menu {
   display: none;
   cursor: pointer;
+  font-size: 1.5rem;
 }
 
 .header-top-menu:hover,
 .header-top-link:hover {
-  color: var(--accent);
-  transform: scale(1.05);
+  color: var(--primary-color);
 }
 
 .header-top-social {
@@ -65,23 +54,20 @@ body {
 }
 
 .social-icon {
-  color: var(--text-light);
+  color: var(--text-color);
   font-size: 1.2rem;
   transition: all 0.3s ease;
 }
 
 .social-icon:hover {
-  color: var(--accent);
-  transform: scale(1.1);
+  color: var(--primary-color);
 }
 
 .header-top-text {
-  font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  color: var(--accent);
+  color: var(--primary-color);
   font-size: 1.2rem;
   text-transform: uppercase;
-  letter-spacing: 2px;
 }
 
 /* Header Middle */
@@ -90,26 +76,16 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 20px 5%;
+  background-color: var(--secondary-color);
 }
 
 .header-middle-logo {
-  font-family: "Montserrat", sans-serif;
   font-size: 2rem;
   font-weight: 700;
-  color: var(--text-light);
+  color: var(--primary-color);
   text-decoration: none;
   display: flex;
   align-items: center;
-  transition: all 0.3s ease;
-}
-
-.header-middle-logo:hover {
-  text-shadow: 0 0 10px var(--accent);
-}
-
-.header-middle-logo i {
-  margin: 0 10px;
-  color: var(--accent);
 }
 
 .header-middle-search-box {
@@ -124,8 +100,8 @@ body {
   font-size: 1rem;
   border: none;
   border-radius: 25px;
-  background-color: rgba(255, 255, 255, 0.2);
-  color: var(--text-light);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-color);
   transition: all 0.3s ease;
 }
 
@@ -135,7 +111,8 @@ body {
 
 .header-middle-search-input:focus {
   outline: none;
-  box-shadow: 0 0 0 2px var(--accent);
+  box-shadow: 0 0 0 2px var(--primary-color);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .header-middle-search-box .bi-search {
@@ -143,35 +120,36 @@ body {
   top: 50%;
   right: 20px;
   transform: translateY(-50%);
-  color: var(--text-light);
+  color: var(--text-color);
   font-size: 1.2rem;
 }
 
 /* Navbar */
 .navbar {
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  background-color: var(--secondary-color);
   padding: 10px 0;
 }
 
 .navbar-links {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 0 5%;
 }
 
 .navbar-link {
-  color: var(--text-light);
+  color: var(--text-color);
   text-decoration: none;
   padding: 10px 20px;
   font-size: 1rem;
   font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1px;
   transition: all 0.3s ease;
   position: relative;
+}
+
+.navbar-link:hover {
+  color: var(--primary-color);
 }
 
 .navbar-link::after {
@@ -181,12 +159,8 @@ body {
   left: 50%;
   width: 0;
   height: 2px;
-  background-color: var(--accent);
+  background-color: var(--primary-color);
   transition: all 0.3s ease;
-}
-
-.navbar-link:hover {
-  color: var(--accent);
 }
 
 .navbar-link:hover::after {
@@ -196,26 +170,18 @@ body {
 
 /* Responsive Design */
 @media (max-width: 1200px) {
-  .header-middle-search-box {
-    width: 40%;
+  .content-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   }
 }
 
 @media (max-width: 992px) {
-  .header-top-text {
-    font-size: 1rem;
-  }
-
-  .social-icon {
-    font-size: 1rem;
-  }
-
-  .header-middle-logo {
-    font-size: 1.5rem;
-  }
-
   .header-middle-search-box {
-    width: 35%;
+    width: 40%;
+  }
+
+  .content-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   }
 
   .navbar-link {
@@ -226,6 +192,7 @@ body {
 
 @media (max-width: 768px) {
   .header {
+    position: fixed;
     height: auto;
   }
 
@@ -264,7 +231,7 @@ body {
     left: -300px;
     width: 250px;
     height: 100vh;
-    background-color: var(--primary-dark);
+    background-color: var(--secondary-color);
     transition: all 0.3s ease;
     overflow-y: auto;
   }
@@ -286,6 +253,10 @@ body {
 
   .navbar-link::after {
     display: none;
+  }
+
+  .content-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   }
 }
 
@@ -311,18 +282,17 @@ body {
     font-size: 1rem;
     right: 15px;
   }
-}
 
-/* Animation for menu toggle */
-@keyframes slideIn {
-  from {
-    transform: translateX(-100%);
+  .content-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
   }
-  to {
-    transform: translateX(0);
-  }
-}
 
-.navbar.active {
-  animation: slideIn 0.3s forwards;
+  .content-item-title {
+    font-size: 0.9rem;
+  }
+
+  .content-item-meta {
+    font-size: 0.7rem;
+  }
 }

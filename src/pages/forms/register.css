@@ -85,6 +85,12 @@ button:hover {
 }
 
 /* Responsive design */
+@media (max-width: 1024px) {
+  .auth-form {
+    max-width: 800px;
+  }
+}
+
 @media (max-width: 900px) {
   .form-group {
     flex: 0 0 calc(50% - 0.5rem);
@@ -95,6 +101,7 @@ button:hover {
   .auth-form {
     max-width: 100%;
     margin-top: 100px;
+    padding: 1.5rem;
   }
 
   .form-group {
@@ -106,7 +113,6 @@ button:hover {
   }
 }
 
-/* Specific styles for registration form */
 .registration-form {
   max-width: 1000px;
 }

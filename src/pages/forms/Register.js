@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./register.css";
@@ -12,6 +13,7 @@ export default function Register() {
     phoneNumber: "",
     address: "",
   });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -59,11 +61,39 @@ export default function Register() {
     return true;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
-      console.log("Form submitted:", formData);
-      toast.success("Registration successful!");
+      setLoading(true);
+      try {
+        const response = await axios.post(
+          "http://localhost:8800/api/auth/register",
+          formData
+        );
+
+        console.log("Registration successful:", response.data);
+        toast.success("Registration successful!");
+        // Reset form or redirect user as needed
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          password: "",
+          phoneNumber: "",
+          address: "",
+        });
+      } catch (error) {
+        console.error(
+          "Registration error:",
+          error.response?.data || error.message
+        );
+        toast.error(
+          error.response?.data?.message ||
+            "Registration failed. Please try again."
+        );
+      } finally {
+        setLoading(false);
+      }
     }
   };
 
@@ -80,6 +110,7 @@ export default function Register() {
               name="firstName"
               value={formData.firstName}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="form-group">
@@ -90,6 +121,7 @@ export default function Register() {
               name="lastName"
               value={formData.lastName}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="form-group">
@@ -100,6 +132,7 @@ export default function Register() {
               name="email"
               value={formData.email}
               onChange={handleChange}
+              required
             />
           </div>
         </div>
@@ -112,6 +145,7 @@ export default function Register() {
               name="password"
               value={formData.password}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="form-group">
@@ -122,6 +156,7 @@ export default function Register() {
               name="phoneNumber"
               value={formData.phoneNumber}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="form-group">
@@ -132,10 +167,13 @@ export default function Register() {
               name="address"
               value={formData.address}
               onChange={handleChange}
+              required
             />
           </div>
         </div>
-        <button type="submit">Register</button>
+        <button type="submit" disabled={loading}>
+          {loading ? "Registering..." : "Register"}
+        </button>
       </form>
       <ToastContainer />
     </div>

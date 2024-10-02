@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./login.css";
@@ -8,6 +9,7 @@ export default function Login() {
     email: "",
     password: "",
   });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -34,11 +36,31 @@ export default function Login() {
     return true;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
-      console.log("Login submitted:", formData);
-      toast.success("Login successful!");
+      setLoading(true);
+      try {
+        const response = await axios.post(
+          "http://localhost:8800/api/auth/login",
+          formData
+        );
+        const { token } = response.data;
+        console.log(token);
+
+        localStorage.setItem("authToken", token);
+
+        toast.success("Login successful!");
+
+        // Example: window.location.href = '/dashboard';
+      } catch (error) {
+        console.error("Login error:", error.response?.data || error.message);
+        toast.error(
+          error.response?.data?.message || "Login failed. Please try again."
+        );
+      } finally {
+        setLoading(false);
+      }
     }
   };
 
@@ -54,6 +76,7 @@ export default function Login() {
             name="email"
             value={formData.email}
             onChange={handleChange}
+            required
           />
         </div>
         <div className="form-group">
@@ -64,9 +87,12 @@ export default function Login() {
             name="password"
             value={formData.password}
             onChange={handleChange}
+            required
           />
         </div>
-        <button type="submit">Login</button>
+        <button type="submit" disabled={loading}>
+          {loading ? "Logging in..." : "Login"}
+        </button>
       </form>
       <ToastContainer />
     </div>

@@ -1,0 +1,118 @@
+:root {
+  --primary-color: #e50914;
+  --secondary-color: #221f1f;
+  --text-color: #ffffff;
+  --background-color: #000000;
+}
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url("/public/images/movieCinema.jpg");
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+  padding: 1rem;
+}
+
+.auth-form {
+  background-color: rgba(34, 31, 31, 0.9);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 200px;
+}
+
+h2 {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  flex: 0 0 calc(33.333% - 1rem);
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--text-color);
+}
+
+button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Responsive design */
+@media (max-width: 900px) {
+  .form-group {
+    flex: 0 0 calc(50% - 0.5rem);
+  }
+}
+
+@media (max-width: 600px) {
+  .auth-form {
+    max-width: 100%;
+    margin-top: 100px;
+  }
+
+  .form-group {
+    flex: 0 0 100%;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Specific styles for registration form */
+.registration-form {
+  max-width: 1000px;
+}
+
+@media (max-width: 1024px) {
+  .registration-form {
+    max-width: 800px;
+  }
+}

@@ -24,7 +24,6 @@ function App() {
         <Route path="/movie/:id" element={<Movie />} />
       </Routes>
       {/* <MainSection /> */}
-      <HomePage />
     </div>
   );
 }

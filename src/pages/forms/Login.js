@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
-import { Link } from "react-router-dom"; // Import Link for routing
+import { Link, useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import "./login.css";
 
@@ -11,6 +11,7 @@ export default function Login() {
     password: "",
   });
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -46,12 +47,25 @@ export default function Login() {
           "http://localhost:8800/api/auth/login",
           formData
         );
-        const { token } = response.data;
-        console.log(token);
+
+        console.log("API Response:", response.data);
+
+        const { token, role } = response.data;
+        const user = response.data;
+
+        if (!user || !role) {
+          throw new Error("User data or role is missing from the response");
+        }
 
         localStorage.setItem("authToken", token);
 
         toast.success("Login successful!");
+
+        if (role === "client") {
+          navigate("/dashboard");
+        } else {
+          navigate("/");
+        }
       } catch (error) {
         console.error("Login error:", error.response?.data || error.message);
         toast.error(

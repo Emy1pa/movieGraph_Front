@@ -2,7 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import HomePage from "./pages/Home/HomePage";
 import Header from "./components/header/Header";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import About from "./pages/about us/About";
 import Movies from "./pages/movies/Movies";
 import ContactUs from "./pages/contact us/ContactUs";
@@ -13,11 +13,15 @@ import ForgotPassword from "./pages/password/ForgotPassword";
 import CheckEmail from "./pages/password/CheckEmail";
 import ResetPassword from "./pages/password/ResetPassword";
 import Success from "./pages/password/Success";
+import Sidebar from "./pages/dashboard/Sidebar";
 
 function App() {
+  const location = useLocation();
+  const isDashboard = location.pathname === "/dashboard";
+
   return (
     <div className="App">
-      <Header />
+      {!isDashboard && <Header />}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<About />} />
@@ -31,9 +35,9 @@ function App() {
           path="/password/reset-password/:userId/:token"
           element={<ResetPassword />}
         />
-
         <Route path="/check-email" element={<CheckEmail />} />
         <Route path="/success" element={<Success />} />
+        <Route path="/dashboard" element={<Sidebar />} />
       </Routes>
     </div>
   );

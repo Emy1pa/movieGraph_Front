@@ -1,0 +1,25 @@
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+.sidebar-header h1 {
+  color: var(--primary-color);
+}
+.nav-link {
+  color: var(--text-color);
+  transition: background-color 0.3s ease;
+}
+.nav-link:hover {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+.btn-danger {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+.btn-danger:hover {
+  background-color: #ff0f1a;
+  border-color: #ff0f1a;
+}

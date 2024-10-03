@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import "./login.css";
 
-export default function Login() {
+export default function Login({ setIsLoggedIn }) {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -58,9 +58,9 @@ export default function Login() {
         }
 
         localStorage.setItem("authToken", token);
+        setIsLoggedIn(true);
 
         toast.success("Login successful!");
-
         if (role === "client") {
           navigate("/dashboard");
         } else {

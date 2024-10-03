@@ -1,7 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function HeaderTop({ setToggle, toggle }) {
+export default function HeaderTop({
+  setToggle,
+  toggle,
+  isLoggedIn,
+  handleLogout,
+}) {
   return (
     <div className="header-top">
       <div
@@ -17,7 +22,7 @@ export default function HeaderTop({ setToggle, toggle }) {
         )}
       </div>
       <div className="header-top-social">
-        <Link tp="#" className="social-icon">
+        <Link to="#" className="social-icon">
           <i className="bi bi-facebook"></i>
         </Link>
         <Link to="#" className="social-icon">
@@ -28,12 +33,19 @@ export default function HeaderTop({ setToggle, toggle }) {
         </Link>
       </div>
       <div className="header-top-text">Welcome To Online Movie Show</div>
-      <Link to={"/login"}>
-        <div className="header-top-link">
-          <i className="bi bi-person-fill"></i>
-          Login
+      {isLoggedIn ? (
+        <div onClick={handleLogout} className="header-top-link">
+          <i className="bi bi-box-arrow-right"></i>
+          Logout
         </div>
-      </Link>
+      ) : (
+        <Link to={"/login"}>
+          <div className="header-top-link">
+            <i className="bi bi-person-fill"></i>
+            Login
+          </div>
+        </Link>
+      )}
     </div>
   );
 }

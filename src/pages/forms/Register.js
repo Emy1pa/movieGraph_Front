@@ -73,7 +73,6 @@ export default function Register() {
 
         console.log("Registration successful:", response.data);
         toast.success("Registration successful!");
-        // Reset form or redirect user as needed
         setFormData({
           firstName: "",
           lastName: "",
@@ -110,7 +109,6 @@ export default function Register() {
               name="firstName"
               value={formData.firstName}
               onChange={handleChange}
-              required
             />
           </div>
           <div className="form-group">
@@ -121,7 +119,6 @@ export default function Register() {
               name="lastName"
               value={formData.lastName}
               onChange={handleChange}
-              required
             />
           </div>
           <div className="form-group">
@@ -132,7 +129,6 @@ export default function Register() {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              required
             />
           </div>
         </div>
@@ -145,7 +141,6 @@ export default function Register() {
               name="password"
               value={formData.password}
               onChange={handleChange}
-              required
             />
           </div>
           <div className="form-group">
@@ -156,7 +151,6 @@ export default function Register() {
               name="phoneNumber"
               value={formData.phoneNumber}
               onChange={handleChange}
-              required
             />
           </div>
           <div className="form-group">
@@ -167,7 +161,6 @@ export default function Register() {
               name="address"
               value={formData.address}
               onChange={handleChange}
-              required
             />
           </div>
         </div>

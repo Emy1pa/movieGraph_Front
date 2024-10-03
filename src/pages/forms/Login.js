@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
+import { Link } from "react-router-dom"; // Import Link for routing
 import "react-toastify/dist/ReactToastify.css";
 import "./login.css";
 
@@ -51,8 +52,6 @@ export default function Login() {
         localStorage.setItem("authToken", token);
 
         toast.success("Login successful!");
-
-        // Example: window.location.href = '/dashboard';
       } catch (error) {
         console.error("Login error:", error.response?.data || error.message);
         toast.error(
@@ -76,7 +75,6 @@ export default function Login() {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            required
           />
         </div>
         <div className="form-group">
@@ -87,12 +85,14 @@ export default function Login() {
             name="password"
             value={formData.password}
             onChange={handleChange}
-            required
           />
         </div>
         <button type="submit" disabled={loading}>
           {loading ? "Logging in..." : "Login"}
         </button>
+        <div className="forgot-password">
+          <Link to="/forgot">Forgot Password?</Link>{" "}
+        </div>
       </form>
       <ToastContainer />
     </div>
